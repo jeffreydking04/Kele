@@ -1,9 +1,11 @@
 require 'httparty'
 require './lib/roadmap.rb'
+require './lib/messaging.rb'
 
 class Kele
   include HTTParty
   include Roadmap
+  include Messaging
 
   def initialize(email, password)
     response = self.class.post("https://www.bloc.io/api/v1/sessions", body: { "email": email, "password": password })
